@@ -1,0 +1,21 @@
+szolgáltatások: 
+adatbázis:
+kép: mongo:latest
+portok:
+- "27017:27017"
+
+háttérrendszer:
+build: ./backend
+portok:
+- "5000:5000"
+környezet:
+- MONGO_URI=mongodb://adatbázis:27017/myapp
+depends_on:
+- adatbázis
+
+frontend:
+build: ./frontend
+portok:
+- "3000:3000"
+depends_on:
+- háttérrendszer
