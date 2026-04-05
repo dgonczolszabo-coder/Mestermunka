@@ -1,0 +1,68 @@
+// models/Post.js - Az adatmodell
+import mongoose from 'mongoose';
+
+const PostSchema = new mongoose.Schema({
+  title: { type: String, required: true }, // Cikk címe
+  content: String,                         // Tartalom
+  tags: [String],                          // Rugalmas lista (NoSQL előny!)
+  createdAt: { type: Date, default: Date.now }
+});
+
+export default mongoose.models.Post || mongoose.model('Post', PostSchema);
+
+// app/api/posts/route.js - Az adatkezelő logika
+import dbConnect from '@/lib/dbConnect';
+import Post from '@/models/Post';
+import { NextResponse } from 'next/server';
+
+// LISTÁZÁS (Read): Lekérjük az összes cikket
+export async function GET() {
+  await dbConnect();
+  const posts = await Post.find().sort({ createdAt: -1 });
+  return NextResponse.json(posts);
+}
+
+// MENTÉS (Create): Új cikket tárolunk el
+export async function POST(req) {
+  await dbConnect();
+  const body = await req.json();
+  const newPost = await Post.create(body); 
+  return NextResponse.json(newPost);
+}
+
+// app/page.js - A megjelenítés
+'use client';
+import { useState, useEffect } from 'react';
+
+export default function Blog() {
+  const [posts, setPosts] = useState([]);
+  const [title, setTitle] = useState('');
+
+  // Adatkezelés: Adatok betöltése az adatbázisból
+  useEffect(() => {
+    fetch('/api/posts').then(res => res.json()).then(setPosts);
+  }, []);
+
+  const savePost = async () => {
+    const res = await fetch('/api/posts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title, content: 'Példa tartalom...' }),
+    });
+    const savedPost = await res.json();
+    setPosts([savedPost, ...posts]); // Azonnali frissítés a UI-on
+  };
+
+  return (
+    <div>
+      <h1>Blogbejegyzések</h1>
+      <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Cím" />
+      <button onClick={savePost}>Mentés</button>
+
+      <ul>
+        {posts.map(p => <li key={p._id}>{p.title}</li>)}
+      </ul>
+    </div>
+  );
+}
+
