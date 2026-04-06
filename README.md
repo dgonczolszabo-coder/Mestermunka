@@ -19,8 +19,8 @@ _Flex-col md:flex-row mobilokon egymás alá rakja a gombot  és az inputot visz
 * __Tiszta Kód példa (Backend Service)__
 _A Clean Code elvek ismerete nagyon fontos a modern szoftverfejlesztésben melynek célja az, hogy ne csak működjön a kód, mert karbantartani, olvasni és bővíteni is tudni lehessen._
 
-* __Markdown formátumban elkészült dokumentáció__
-_Markdown formátumú dokumentáció_
+* __Markdawn formátumban elkészült dokumentáció__
+_Markdawn formátumú dokumentáció_
 
 
 
