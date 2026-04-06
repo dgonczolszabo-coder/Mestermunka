@@ -1,0 +1,5 @@
+// services/taskService.js
+export const createTask = async (taskData) => {
+  if (!taskData.title) throw new Error("A cím kötelező!");
+  return await TaskRepository.save(taskData);
+};
