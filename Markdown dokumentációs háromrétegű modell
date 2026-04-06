@@ -1,0 +1,11 @@
+Az alkalmazás a **háromrétegű (3-tier) architektúra** elveit követi:
+
+1. **Prezentációs réteg (elülső):** 
+* **Technológia:** React + Vite. 
+* **Felelősség:** Felhasználói felület renderelése, reszponzív térkép Tailwind CSS-sel, állapotkezelés.
+2. **Üzleti logikai réteg (háttér):** 
+* **Technológia:** Node.js + Express. 
+* **Minta:** Controller-Service-Repository minta a Clean Code érdekében.
+3. **Adat-hozzáférési réteg (NoSQL):** 
+* **Technológia:** MongoDB + Mongoose. 
+* **Felelősség:** Adatperzisztencia, sémadefiníciók és lekérdezések.
