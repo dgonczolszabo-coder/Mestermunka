@@ -1,0 +1,40 @@
+openapi: 3.0.0
+info: 
+cím: TaskMaster API 
+verzió: 1.0.0 
+leírás: Feladatkezelő rendszer backend specifikációja.
+
+utak: 
+/api/tasks: 
+kap: 
+összefoglaló: Összes feladat lekérése 
+válaszok: 
+'200': 
+leírás: Sikeres lekérdezés. 
+hozzászólás: 
+összefoglaló: Új feladat létrehozása 
+requestBody: 
+kötelező: igaz 
+tartalom: 
+alkalmazás/json: 
+séma: 
+típusa: objektum 
+tulajdonságok: 
+cím: { típus: string } 
+leírás: { típus: karakterlánc } 
+állapot: { type: string, enum: [teendő, folyamatban, kész] } 
+válaszok: 
+'201': 
+leírás: Feladat létrehozása. 
+
+/api/tasks/{id}: 
+tedd: 
+összefoglaló: Feladat frissítése 
+paraméterek: 
+- név: id 
+in: út 
+kötelező: igaz 
+séma: { típus: karakterlánc } 
+válaszok: 
+'200': 
+leírás: Sikeres frissítés.
