@@ -21,7 +21,7 @@ _A Clean Code elvek ismerete nagyon fontos a modern szoftverfejlesztésben melyn
 
 * __Markdown formátumban elkészült dokumentáció__
 _Markdown formátumú dokumentáció_
-_Ez a formázás átlátható és a legtöbb fejlesztői eszköz mint például a GitHub azonnal esztétikus dokumentációként jeleníti meg_
+_Ez a formázás átlátható és a legtöbb fejlesztői eszköz mint például a GitHub azonnal esztétikus dokumentációként jeleníti meg._
 
 
 
