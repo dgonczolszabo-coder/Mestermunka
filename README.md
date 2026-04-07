@@ -23,6 +23,10 @@ _A Clean Code elvek ismerete nagyon fontos a modern szoftverfejlesztésben melyn
 _Markdown formátumú dokumentáció._
 _Ez a formázás átlátható és a legtöbb fejlesztői eszköz mint például a GitHub azonnal esztétikus dokumentációként jeleníti meg._
 
+* __Végpontok az OpenAPI szabványnak megfelelően dokumentálva__
+_A backend végpontok OpenAPI, korábbi nevén Swagger szabvány szerinti dokumentálása azt jelenti, hogy az
+API-Application Programming Interface azaz alkalmazásprogramozási interfész vagy felület-működését egy emberek és gépek által egyaránt olvasható egységes formátum amit általában JSON adatformátumban írunk le._
+
 
 
 
