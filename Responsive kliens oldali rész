@@ -1,71 +1,79 @@
 // app/page.js
-'use client';
+'kliens használata';
+
 import { useState, useEffect } from 'react';
 
-export default function ResponsiveBlog() {
-  const [posts, setPosts] = useState([]);
-  const [title, setTitle] = useState('');
+export alapértelmezett függvény ResponsiveBlog() {
+const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    fetch('/api/posts').then(res => res.json()).then(setPosts);
-  }, []);
+const [title, setTitle] = useState('');
 
-  const savePost = async () => {
-    if (!title) return;
-    const res = await fetch('/api/posts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, content: 'Tartalom...' }),
-    });
-    const savedPost = await res.json();
-    setPosts([savedPost, ...posts]);
-    setTitle('');
-  };
+useEffect(() => {
+fetch('/api/posts').then(res => res.json()).then(setPosts);
 
-  return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
-      {/* Konténer: mobilon teljes szélesség, nagyobb gépen korlátozott */}
-      <div className="max-w-4xl mx-auto">
-        
-        <h1 className="text-2xl md:text-4xl font-bold text-gray-800 mb-8 text-center">
-          NoSQL Blog App
-        </h1>
+}, []);
 
-        {/* Responsive Űrlap: mobilon egymás alatt, felette egymás mellett */}
-        <div className="flex flex-col md:flex-row gap-3 mb-10">
-          <input 
-            className="flex-1 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={title} 
-            onChange={(e) => setTitle(e.target.value)} 
-            placeholder="Bejegyzés címe..." 
-          />
-          <button 
-            onClick={savePost}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all active:scale-95"
-          >
-            Mentés
-          </button>
-        </div>
+const savePost = async () => {
+if (!title) return;
 
-        {/* Responsive Grid: mobilon 1 oszlop, tableten 2, asztali gépen 3 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map(p => (
-            <div key={p._id} className="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-              <h2 className="text-xl font-bold text-blue-600 mb-2">{p.title}</h2>
-              <p className="text-gray-600 text-sm italic">
-                {new Date(p.createdAt).toLocaleDateString('hu-HU')}
-              </p>
-              <div className="mt-4 flex gap-2">
-                <span className="bg-gray-100 text-xs px-2 py-1 rounded text-gray-500">NoSQL</span>
-                <span className="bg-gray-100 text-xs px-2 py-1 rounded text-gray-500">Fullstack</span>
-              </div>
-            </div>
-          ))}
-        </div>
+const res = await fetch('/api/posts', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ title, content: 'Tartalom...' }),
+});
 
-        {posts.length === 0 && (
-          <p className="text-center text-gray-400 mt-10">Még nincsenek bejegyzések.</p>
-        )}
-      </div>
-    </div>
-  );
+const savedPost = await res.json();
+
+setPosts([savedPost, ...bejegyzések]);
+
+setTitle('');
+
+};
+
+vissza ( 
+<div className="min-h-screen bg-gray-50 p-4 md:p-8"> 
+{/* Konténer: mobilon teljes szélesség, nagyobb gépen korlátozott */} 
+<div className="max-w-4xl mx-auto"> 
+
+<h1 className="text-2xl md:text-4xl font-bold text-gray-800 mb-8 text-center"> 
+NoSQL Blog App 
+</h1> 
+
+{/* Responsive Űrlap: mobilon egymás alatt, felette egymás mellett */} 
+<div className="flex flex-col md:flex-row gap-3 mb-10"> 
+<bemenet 
+className="flex-1 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 fókusz: gyűrű-kék-500" 
+value={title} 
+onChange={(e) => setTitle(e.target.value)} 
+placeholder="Bejegyzés címe..." 
+/> 
+<gomb 
+onClick={SavePost} 
+className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg átmeneti-all active:scale-95" 
+> 
+Mentés 
+</button> 
+</div> 
+
+{/* Responsive Grid: mobilon 1 oszlop, tableten 2, asztali gépen 3 */} 
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> 
+{posts.map(p => ( 
+<div key={p._id} className="bg-white p-6 kerekített-xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+<h2 className="text-xl font-bold text-blue-600 mb-2">{p.title</h2>
+<p className="text-gray-600 text-sm italic">
+{new Date(p.createdAt).toLocaleDateString('hu-HU')}
+</p>
+<div className="mt-4 flex gap-2">
+<span className="bg-gray-100 text-xs px-2 py-1 rounded text-gray-500">NoSQL</span>
+<span className="bg-gray-100 text-xs px-2 py-1 rounded text-gray-500">Fullstack</span>
+</div>
+</div>
+))}
+</div>
+
+{posts.length === 0 && (
+<p className="text-center text-gray-400 mt-10">Még nincsenek bejegyzések.</p> 
+)} 
+</div> 
+</div> 
+);
