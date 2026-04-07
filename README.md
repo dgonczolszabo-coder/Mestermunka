@@ -8,7 +8,7 @@ _GNU GENERAL PUBLIC LICENSE_
 _A gyökerében a projektnek összefogja a szolgáltatásokat egy docker-compose.yml fájl és ez a példa erre a szerkezetre._
 
 * __Fullstack webes alkalamazás tesztekkel lefedve__
-_A fullstack webes alkalamazás tesztekkel lefedve_
+_A fullstack webes alkalmazás tesztekkel lefedve._
 
 * __Adattárolás és adatkezelés megvalósítása NoSQL adatbázis segítségével__
 _A NoSQL-ben nincsenek táblák mivelhogy gyűjtemények vannak. A Mongoose könyvtár segítségével adtam meg az adatok szerkezetét mert így rugalmas a tárolás és ha később minden poszthoz akarok adni egy „szerző” mezőt, nem kell az adatbázist migrálni, mindössze az új adatot elkezdem menteni. A fejlesztés így gyorsabb mert nem kell SQL lekérdezéseket írnom mert Javascript objektumokkal dolgozom. Fontos még a skálázhatóság azért, mert a NoSQL adatbázisok mint például a MongoDB sokkal könnyebben kezelnek nagyon nagy adatmennyiséget._
