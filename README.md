@@ -20,7 +20,7 @@ _Flex-col md:flex-row mobilokon egymás alá rakja a gombot  és az inputot visz
 _A Clean Code elvek ismerete nagyon fontos a modern szoftverfejlesztésben melynek célja az, hogy ne csak működjön a kód, mert karbantartani, olvasni és bővíteni is tudni lehessen._
 
 * __Markdown formátumban elkészült dokumentáció__
-_Markdown formátumú dokumentáció_
+_Markdown formátumú dokumentáció._
 _Ez a formázás átlátható és a legtöbb fejlesztői eszköz mint például a GitHub azonnal esztétikus dokumentációként jeleníti meg._
 
 
